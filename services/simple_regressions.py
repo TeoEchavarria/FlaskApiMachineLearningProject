@@ -3,9 +3,9 @@ from flask import make_response
 class SimpleRegressions:
 
     @classmethod
-    def Lineal():
+    def lineal():
         return make_response({"message" : "Lineal Simple Regression"})
     
     @classmethod
-    def Lineal():
+    def polynomial():
         return make_response({"message" : "Lineal Simple Regression"})
