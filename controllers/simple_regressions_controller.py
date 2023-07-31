@@ -5,7 +5,7 @@ simple_regressions_route = Blueprint("simple_regressions", __name__)
 
 @simple_regressions_route.route("/lineal", methods=["GET"])
 def get_lineal_simple_model():
-    data = request.get_json(force = True)
+    data = request.get_json()
     return make_response(data)
     #return SimpleRegressions.lineal(data)
 
