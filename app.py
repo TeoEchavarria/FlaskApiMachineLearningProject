@@ -9,7 +9,7 @@ app = Flask(__name__)
 def hello():
     return jsonify({"message" : 'Hello World Flask'})
 
-#app.register_blueprint(simple_regressions_route)
+app.register_blueprint(simple_regressions_route)
 
 CORS(app)
 
