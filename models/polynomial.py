@@ -5,14 +5,12 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
 
-class Lineal_Simpledeac_Model:
+class PolynomialSimpleModel:
 
     @classmethod
-    def prediction(dataset):
-        X = dataset.iloc[:, :-1].values
-        y = dataset.iloc[:, 1].values
-
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
+    def prediction(self, dataset):
+        X = np.array(dataset["X"]).reshape(-1, 1)
+        y = np.array(dataset["Y"])
 
         regression = PolynomialFeatures(degree = 3)
         X_poly = regression.fit_transform(X)
@@ -22,5 +20,5 @@ class Lineal_Simpledeac_Model:
         X_grid = np.arange(min(X), max(X), 0.1)
         X_grid = X_grid.reshape(len(X_grid), 1)
 
-        return {"error" : 0, "preddiction" : [X_grid, lin_reg_2.predict(regression.fit_transform(X_grid))]}
+        return {"error" : 0, "preddiction" :  list(lin_reg_2.predict(regression.fit_transform(X_grid)))}
 

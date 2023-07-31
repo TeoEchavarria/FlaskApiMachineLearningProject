@@ -5,8 +5,11 @@ simple_regressions_route = Blueprint("simple_regressions", __name__)
 
 @simple_regressions_route.route("/lineal", methods=["GET"])
 def get_lineal_simple_model():
-    return SimpleRegressions.lineal()
+    data = request.get_json()
+    print(data, type(data))
+    return SimpleRegressions.lineal(data)
 
 @simple_regressions_route.route("/polynomial", methods=["GET"])
 def get_polynomial_simple_model():
-    return SimpleRegressions.polynomial()
+    data = request.get_json()
+    return SimpleRegressions.polynomial(data)

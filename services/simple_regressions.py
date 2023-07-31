@@ -1,11 +1,13 @@
 from flask import make_response
+from models.lineal import LinealSimpleModel
+from models.polynomial import PolynomialSimpleModel
 
 class SimpleRegressions:
 
     @classmethod
-    def lineal():
-        return make_response({"message" : "Lineal Simple Regression"})
+    def lineal(self, data):
+        return make_response(LinealSimpleModel.prediction(data))
     
     @classmethod
-    def polynomial():
-        return make_response({"message" : "Lineal Simple Regression"})
+    def polynomial(self, data):
+        return make_response(PolynomialSimpleModel.prediction(data))
