@@ -17,6 +17,7 @@ class LinealSimpleModel:
         regression.fit(X_train, y_train)
 
         y_pred = regression.predict(X_train)
+        y_pred = sorted(y_pred)
 
         xtrain = X_train.reshape(1,-1).tolist()[0]
         ordenado = sorted(xtrain)
