@@ -18,7 +18,10 @@ class LinealSimpleModel:
 
         y_pred = regression.predict(X_train)
 
+        xtrain = X_train.reshape(1,-1).tolist()[0]
+        ordenado = sorted(xtrain)
+
         #EVALUACION DE % DE ERROR
         error_aprox = np.mean([ abs((y_pred[i]-y_test[i])/y_test[i]) for i in range(len(X_test))])
 
-        return {"error" : error_aprox, "prediction" : list(y_pred), "train" : X_train.reshape(1,-1).tolist()[0]}
+        return {"error" : error_aprox, "prediction" : list(y_pred), "train" : ordenado}
