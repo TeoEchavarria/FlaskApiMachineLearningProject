@@ -16,7 +16,7 @@ class LinealSimpleModel:
         regression = LinearRegression()
         regression.fit(X_train, y_train)
 
-        y_pred = regression.predict(X_train)
+        y_pred = regression.predict(X)
 
         #EVALUACION DE % DE ERROR
         error_aprox = np.mean([ abs((y_pred[i]-y_test[i])/y_test[i]) for i in range(len(X_test))])
