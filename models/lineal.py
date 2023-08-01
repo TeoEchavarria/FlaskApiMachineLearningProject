@@ -14,11 +14,11 @@ class LinealSimpleModel:
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
 
         regression = LinearRegression()
-        regression.fit(X, y)
+        regression.fit(X_train, y_train)
 
-        y_pred = regression.predict(X)
+        y_pred = regression.predict(X_train)
 
         #EVALUACION DE % DE ERROR
         error_aprox = np.mean([ abs((y_pred[i]-y_test[i])/y_test[i]) for i in range(len(X_test))])
 
-        return {"error" : error_aprox, "prediction" : list(X)}
+        return {"error" : error_aprox, "prediction" : list(y_pred), "train" : X_train.reshape(1,-1).tolist()[0]}
