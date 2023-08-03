@@ -24,4 +24,4 @@ class LinealSimpleModel:
         prediction =  list(y_pred)
         x_prediction = [i[0] for i in X.tolist()]
 
-        return {"error" : 0, "prediction" : [{"x" : i, "y" : j} for i,j in zip(prediction, x_prediction)] }
+        return {"error" : 0, "prediction" : [{"x" : i, "y" : j} for i,j in zip(prediction, x_prediction)] , "xTrain" : x_prediction}
