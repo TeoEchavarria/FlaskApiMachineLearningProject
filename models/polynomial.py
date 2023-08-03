@@ -20,5 +20,8 @@ class PolynomialSimpleModel:
         X_grid = np.arange(min(X), max(X), 0.1)
         X_grid = X_grid.reshape(len(X_grid), 1)
 
-        return {"error" : 0, "prediction" :  list(lin_reg_2.predict(regression.fit_transform(X_grid))), "X_grid" : [i[0] for i in X_grid.tolist()]}
+        prediction = list(lin_reg_2.predict(regression.fit_transform(X_grid)))
+        x_prediction = [i[0] for i in X_grid.tolist()]
+
+        return {"error" : 0, "prediction" : [{"x" : i, "y" : j} for i,j in zip(prediction, x_prediction)] }
 
