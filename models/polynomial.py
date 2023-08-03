@@ -23,5 +23,5 @@ class PolynomialSimpleModel:
         prediction = list(lin_reg_2.predict(regression.fit_transform(X_grid)))
         x_prediction = [i[0] for i in X_grid.tolist()]
 
-        return {"error" : 0, "prediction" : [{"x" : i, "y" : j} for i,j in zip(prediction, x_prediction)] , "xTrain" : x_prediction}
+        return {"error" : 0, "prediction" : [{"x" : i, "y" : j} for i,j in zip(x_prediction, prediction)] , "xTrain" : x_prediction}
 
