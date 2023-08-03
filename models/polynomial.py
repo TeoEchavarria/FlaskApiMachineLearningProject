@@ -12,7 +12,9 @@ class PolynomialSimpleModel:
         X = np.array(list(filter(lambda x: x is not None, dataset["X"]))).reshape(-1, 1)
         y = np.array(list(filter(lambda x: x is not None, dataset["Y"])))
 
-        regression = PolynomialFeatures(degree = 3)
+        print("____________POLYNOMIAL_______________")
+
+        regression = PolynomialFeatures(degree = 5)
         X_poly = regression.fit_transform(X)
         lin_reg_2 = LinearRegression()
         lin_reg_2.fit(X_poly, y)
