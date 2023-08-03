@@ -21,4 +21,4 @@ class LinealSimpleModel:
         #EVALUACION DE % DE ERROR
         error_aprox = np.mean([ abs((y_pred[i]-y_test[i])/y_test[i]) for i in range(len(X_test))])
 
-        return {"error" : error_aprox, "prediction" : list(y_pred)}
+        return {"error" : error_aprox, "prediction" : list(y_pred), "X_grid" : [i[0] for i in X.tolist()]}
