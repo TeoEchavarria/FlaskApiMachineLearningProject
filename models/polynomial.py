@@ -9,8 +9,8 @@ class PolynomialSimpleModel:
 
     @classmethod
     def prediction(self, dataset):
-        X = np.array(dataset["X"]).reshape(-1, 1)
-        y = np.array(dataset["Y"])
+        X = np.array(list(filter(lambda x: x is not None, dataset["X"]))).reshape(-1, 1)
+        y = np.array(list(filter(lambda x: x is not None, dataset["Y"])))
 
         regression = PolynomialFeatures(degree = 3)
         X_poly = regression.fit_transform(X)

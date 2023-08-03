@@ -8,8 +8,8 @@ class LinealSimpleModel:
 
     @classmethod
     def prediction(self, dataset):
-        X = np.array(dataset["X"]).reshape(-1, 1)
-        y = np.array(dataset["Y"])
+        X = np.array(list(filter(lambda x: x is not None, dataset["X"]))).reshape(-1, 1)
+        y = np.array(list(filter(lambda x: x is not None, dataset["Y"])))
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
 
