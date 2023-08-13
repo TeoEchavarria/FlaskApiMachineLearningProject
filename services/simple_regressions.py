@@ -1,6 +1,6 @@
 from flask import make_response
-from models.lineal import LinealSimpleModel
-from models.polynomial import PolynomialSimpleModel
+from models.simple.lineal import LinealSimpleModel
+from models.simple.polynomial import PolynomialSimpleModel
 
 class SimpleRegressions:
 
