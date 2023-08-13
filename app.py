@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from controllers.simple_regressions_controller import simple_regressions_route
+from controllers.clustering_controller import clustering_route
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ def hello():
     return jsonify({"message" : 'Hello World Flask'})
 
 app.register_blueprint(simple_regressions_route)
+app.register_blueprint(clustering_route)
 
 CORS(app)
 
