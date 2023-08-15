@@ -11,7 +11,7 @@ class NearestNeighborsClusteringModel:
 
     @classmethod
     def prediction(self, dataset):
-        X = np.array(list(filter(lambda x: x is not None, dataset["X"]))).reshape(-1, 1)
+        X = np.array(list(filter(lambda x: x is not None, dataset["X"])))
         y = np.array(list(filter(lambda x: x is not None, dataset["Y"])))
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/5, random_state = 0)
@@ -32,4 +32,4 @@ class NearestNeighborsClusteringModel:
 
         # Elaborar una matriz de confusión
         cm = confusion_matrix(y_test, y_pred)
-        return None
+        return { "prediction" : [{"x" : i, "y" : j} for i,j in zip( X_test.tolist(), y_pred.tolist())] , "xTrain" : X_train.tolist()}
